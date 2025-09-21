@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/netflix_portfolio_prachi/static/css/main.0dce55df.css",
+    "main.js": "/netflix_portfolio_prachi/static/js/main.b9436227.js",
+    "static/js/453.b0cd7502.chunk.js": "/netflix_portfolio_prachi/static/js/453.b0cd7502.chunk.js",
+    "static/media/prachi-photo.jpg": "/netflix_portfolio_prachi/static/media/prachi-photo.9c06514a9b8d0d6201fd.jpg",
+    "static/media/Hotelcalifornia.jpg": "/netflix_portfolio_prachi/static/media/Hotelcalifornia.a1b2e230d97c00441c76.jpg",
+    "static/media/grey.png": "/netflix_portfolio_prachi/static/media/grey.bbfd7fb8e095529e355c.png",
+    "static/media/blue.png": "/netflix_portfolio_prachi/static/media/blue.9b293a4a6ef065903a8f.png",
+    "static/media/netflix-sound.mp3": "/netflix_portfolio_prachi/static/media/netflix-sound.a13a4aedfb5da5a27f04.mp3",
+    "static/media/red.png": "/netflix_portfolio_prachi/static/media/red.6138d0c52611186c9d03.png",
+    "static/media/guns-n-roses.webp": "/netflix_portfolio_prachi/static/media/guns-n-roses.0fc43e1f941a88098915.webp",
+    "static/media/ac-dc.jpg": "/netflix_portfolio_prachi/static/media/ac-dc.44867f491e8e97894eff.jpg",
+    "index.html": "/netflix_portfolio_prachi/index.html",
+    "main.0dce55df.css.map": "/netflix_portfolio_prachi/static/css/main.0dce55df.css.map",
+    "main.b9436227.js.map": "/netflix_portfolio_prachi/static/js/main.b9436227.js.map",
+    "453.b0cd7502.chunk.js.map": "/netflix_portfolio_prachi/static/js/453.b0cd7502.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0dce55df.css",
+    "static/js/main.b9436227.js"
+  ]
+}
