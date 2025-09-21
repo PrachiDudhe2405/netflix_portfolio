@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Certifications.css';
 import { FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
 import { SiUdemy, SiCoursera, SiIeee } from 'react-icons/si';
@@ -12,7 +13,7 @@ const iconData: { [key: string]: JSX.Element } = {
 }
 
 const Certifications: React.FC = () => {
-
+  const navigate = useNavigate();
   const [certifications, setCertifications] = useState<Certification[]>([]);
 
   useEffect(() => { 
@@ -24,13 +25,28 @@ const Certifications: React.FC = () => {
     fetchCertifications();
   }, []);
 
+  const handleCertificationClick = (cert: Certification) => {
+    if (cert.link && cert.link !== '#') {
+      if (cert.link.startsWith('/certificate/')) {
+        navigate(cert.link);
+      } else {
+        window.open(cert.link, '_blank', 'noopener,noreferrer');
+      }
+    }
+  };
+
   if (certifications.length === 0) return <div>Loading...</div>;
 
   return (
     <div className="certifications-container">
       <div className="certifications-grid">
         {certifications.map((cert, index) => (
-          <a href={cert.link} key={index} target="_blank" rel="noopener noreferrer" className="certification-card" style={{ '--delay': `${index * 0.2}s` } as React.CSSProperties}>
+          <div 
+            key={index} 
+            className="certification-card clickable-certification" 
+            style={{ '--delay': `${index * 0.2}s` } as React.CSSProperties}
+            onClick={() => handleCertificationClick(cert)}
+          >
             <div className="certification-content">
               <div className="certification-icon">{iconData[cert.iconName] || <FaUniversity />}</div>
               <h3>{cert.title}</h3>
@@ -40,7 +56,7 @@ const Certifications: React.FC = () => {
             <div className="certification-link animated-icon">
               <FaExternalLinkAlt />
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>

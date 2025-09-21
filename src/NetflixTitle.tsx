@@ -2,34 +2,44 @@ import React, { useEffect, useState } from 'react';
 import './NetflixTitle.css';
 import netflixSound from './netflix-sound.mp3';
 import { useNavigate } from 'react-router-dom';
-import logoImage from '../src/images/logo-2.png'; // Update with the path to your logo
+// Rendering name as text instead of static image so it can be personalized
 
 const NetflixTitle = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
 
-  const handlePlaySound = () => {
-    const audio = new Audio(netflixSound);
-    audio.play().catch(error => console.error("Audio play error:", error));
-    setIsClicked(true); // Starts animation after clicking
-  };
-
   useEffect(() => {
-    if (isClicked) {
-      const timer = setTimeout(() => {
-        navigate('/browse');
-      }, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [isClicked, navigate]);
+    // Start animation automatically after component mounts
+    const startTimer = setTimeout(() => {
+      setIsAnimating(true);
+      // Play sound
+      const audio = new Audio(netflixSound);
+      audio.play().catch(error => console.error("Audio play error:", error));
+    }, 500); // Small delay to ensure component is fully loaded
+
+    // Navigate to browse page after animation completes
+    const navigateTimer = setTimeout(() => {
+      navigate('/browse');
+    }, 4500); // 4.5 seconds total (0.5s delay + 4s animation)
+
+    return () => {
+      clearTimeout(startTimer);
+      clearTimeout(navigateTimer);
+    };
+  }, [navigate]);
 
   return (
-    <div className="netflix-container" onClick={handlePlaySound}>
-      <img 
-        src={logoImage} 
-        alt="Custom Logo" 
-        className={`netflix-logo ${isClicked ? 'animate' : ''}`} 
-      />
+    <div className="netflix-container">
+      <div className={`netflix-logo ${isAnimating ? 'animate' : ''}`}>
+        <svg viewBox="0 0 800 300" className="netflix-svg" aria-label="Prachi Dudhe">
+          <defs>
+            <path id="arcPath" d="M50,200 Q400,40 750,200" />
+          </defs>
+          <text className="netflix-text">
+            <textPath href="#arcPath" startOffset="50%" textAnchor="middle">PRACHI DUDHE</textPath>
+          </text>
+        </svg>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,32 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.timeline-content-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.timeline-content-clickable:hover {
+  background-color: rgba(33, 150, 243, 0.1);
+  transform: scale(1.02);
+}
+
+.timeline-summary {
+  font-style: italic;
+  margin: 10px 0;
+  opacity: 0.9;
+}
+
+.click-hint {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 10px 0 0;
+  opacity: 0.8;
+  text-align: right;
+}
+
 
 .timeline-container {
   text-align: center;

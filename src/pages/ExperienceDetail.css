@@ -1,0 +1,255 @@
+.experience-detail-container {
+  padding: 100px 40px;
+  background-color: #141414;
+  color: #e6e6e6;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.experience-not-found {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.experience-not-found h1 {
+  color: #e50914;
+  margin-bottom: 20px;
+}
+
+.experience-not-found p {
+  color: #ccc;
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+.back-button {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.back-button:hover {
+  background: #b8070f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #333;
+}
+
+.experience-header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 20px 0 10px;
+  font-weight: 700;
+}
+
+.experience-header h2 {
+  font-size: 1.8rem;
+  color: #e50914;
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+
+.experience-meta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.date-range {
+  background: #333;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.tech-stack {
+  background: #e50914;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.experience-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.experience-content section {
+  margin-bottom: 40px;
+  padding: 30px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  border-left: 4px solid #e50914;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-content section:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.experience-content h3 {
+  color: #e50914;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.experience-content h3::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: #e50914;
+  margin-right: 12px;
+  border-radius: 2px;
+}
+
+.summary-section p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e6e6e6;
+  margin: 0;
+}
+
+.experience-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-content li {
+  position: relative;
+  padding: 12px 0 12px 30px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e6e6e6;
+  border-bottom: 1px solid #333;
+}
+
+.experience-content li:last-child {
+  border-bottom: none;
+}
+
+.experience-content li::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  color: #e50914;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.achievements-section {
+  border-left-color: #28a745;
+}
+
+.achievements-section h3::before {
+  background: #28a745;
+}
+
+.achievements-section li::before {
+  content: '✓';
+  color: #28a745;
+}
+
+.challenges-section {
+  border-left-color: #ffc107;
+}
+
+.challenges-section h3::before {
+  background: #ffc107;
+}
+
+.challenges-section li::before {
+  content: '⚡';
+  color: #ffc107;
+}
+
+.impact-section {
+  border-left-color: #17a2b8;
+}
+
+.impact-section h3::before {
+  background: #17a2b8;
+}
+
+.impact-section li::before {
+  content: '📈';
+  color: #17a2b8;
+}
+
+.learnings-section {
+  border-left-color: #6f42c1;
+}
+
+.learnings-section h3::before {
+  background: #6f42c1;
+}
+
+.learnings-section li::before {
+  content: '🎓';
+  color: #6f42c1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-detail-container {
+    padding: 80px 20px;
+  }
+  
+  .experience-header h1 {
+    font-size: 2rem;
+  }
+  
+  .experience-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .experience-meta {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .experience-content section {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .experience-content h3 {
+    font-size: 1.3rem;
+  }
+}

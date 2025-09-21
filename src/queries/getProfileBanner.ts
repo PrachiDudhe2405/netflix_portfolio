@@ -1,25 +1,13 @@
 // queries/getProfileBanner.ts
-import datoCMSClient from './datoCMSClient';
 import { ProfileBanner } from '../types';
 
-const GET_PROFILE_BANNER = `
- {
-  profilebanner {
-    backgroundImage {
-      url
-    }
-    headline
-    resumeLink {
-      url
-    }
-    linkedinLink
-    profileSummary
-  }
-}
-`;
-
 export async function getProfileBanner(): Promise<ProfileBanner> {
-  const data = await datoCMSClient.request<{ profilebanner: ProfileBanner }>(GET_PROFILE_BANNER);
-  console.log("🚀 ~ getProfileBanner ~ data:", data)
-  return data.profilebanner;
+  // Use static content instead of remote CMS
+  return {
+    backgroundImage: { url: '' },
+    headline: 'Graduate student who loves making machines think and dashboards dance',
+    resumeLink: { url: '/resume' },
+    linkedinLink: 'https://www.linkedin.com/in/prachi-dudhe',
+    profileSummary: "Hi, I’m Prachi 👋 - a grad student at Texas A&M who’s endlessly curious about all things AI/ML. I’ve built resume-matching bots, traffic-spotting detectors, and even a Fitbit dashboard that politely suggests when to skip dessert (oops). I love solving real-world problems with data and get equally excited about messy code fixes and clean, polished visualizations. When I’m not debugging, you’ll probably find me chasing good coffee."
+  } as ProfileBanner;
 }

@@ -21,7 +21,7 @@ const ProfileBanner: React.FC = () => {
   if (!bannerData) return <div>Loading...</div>;
 
   const handlePlayClick = () => {
-    window.open(bannerData.resumeLink.url, '_blank');
+    window.location.href = '/resume';
   };
 
   const handleLinkedinClick = () => { 

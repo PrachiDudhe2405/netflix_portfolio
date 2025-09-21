@@ -22,7 +22,7 @@ export interface TimelineItem {
   name: string;
   title: string;
   techStack: string;
-  summaryPoints: string[];
+  summaryPoints: string | string[];
   dateRange: string;
 }
 
@@ -31,6 +31,7 @@ export interface Project {
   description: string;
   techUsed: string;
   image: { url: string };
+  link?: string;
 }
 
 export interface Certification {

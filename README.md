@@ -1,123 +1,205 @@
-## 🌟 Sumanth Samala's Netflix inspired Portfolio 🌟 - https://sumanthsamala.com/
+# 🌟 Prachi Dudhe's Netflix-Inspired Portfolio 🌟
 
-Welcome to my personal portfolio project! 🚀 This website showcases my work, skills, and experiences in web development. It's designed to be lightweight, customizable, and professional while maintaining an approachable style.
+Welcome to my personal portfolio project! 🚀 This is a Netflix-inspired portfolio website that showcases my work, skills, and experiences in data science and software development. It features an immersive Netflix-like interface with personalized content and interactive elements.
 
-Explore specific subdomains tailored to different tech stacks:
-
-- 🌟 [java.sumanthsamala.com](https://java.sumanthsamala.com/) for Java Spring Boot-related work.
-- 🌟 [node.sumanthsamala.com](https://node.sumanthsamala.com/) for Node.js and backend development.
-- 🌟 [frontend.sumanthsamala.com](https://frontend.sumanthsamala.com/) for frontend development expertise.
-- 🌟 [ror.sumanthsamala.com](https://ror.sumanthsamala.com/) for Ruby on Rails projects.
-
-![Screenshot from 2024-12-08 19-19-06](https://github.com/user-attachments/assets/f8220485-16ec-48cf-8cb2-7853540c5724)
+![Portfolio Preview](https://github.com/user-attachments/assets/f8220485-16ec-48cf-8cb2-7853540c5724)
 
 ---
 
 ## ✨ Features
 
-- 🌍 **Dynamic Content**: Powered by [DatoCMS](https://www.datocms.com) for easy content management.
-- ⚡ **Fast & Responsive**: Built with modern web technologies for seamless performance.
-- 🎨 **Customizable**: Modular and easy to adapt to your own needs.
-- 📈 **Professional Yet Personal**: Highlights projects, skills, and achievements.
-- 🎨 It can support various por
+### 🎬 **Netflix-Inspired Interface**
+- **Animated Splash Screen**: Custom "PRACHI DUDHE" wordmark with Netflix-style arched animation
+- **Profile Selection**: Choose from 3 different viewing experiences (Recruiter, Developer, Stalker)
+- **Dynamic Backgrounds**: Each profile has unique animated backgrounds
+- **Auto-Play Animation**: Smooth automatic transition from splash to profile selection
+
+### 📱 **Interactive Sections**
+- **Professional Timeline**: Clickable work experience and education with detailed pages
+- **Project Showcase**: Interactive project cards with external links and detailed views
+- **Skills Display**: Animated skills section with categorized expertise
+- **Certification Gallery**: Clickable certificates with actual certificate images
+- **Anime Collection**: Personal anime favorites with hover effects
+- **Resume Page**: In-browser resume display with clean, readable formatting
+
+### 🎯 **Personalized Content**
+- **Static Data Management**: Removed CMS dependencies for faster loading
+- **Custom Project Links**: Direct links to live projects (e.g., CIFAR-10 classification)
+- **Personal Images**: Custom profile pictures and project screenshots
+- **Detailed Descriptions**: Comprehensive project and experience details
+
+### 🎨 **Modern UI/UX**
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+- **Hover Effects**: Interactive cards with smooth animations
+- **Netflix Color Scheme**: Red (#e50914) and dark theme throughout
+- **Custom Typography**: Netflix Sans font for authentic branding
 
 ---
 
 ## 🛠️ Tech Stack
 
-This portfolio is built with love and:
+This portfolio is built with modern technologies:
 
-- ⚛️ **React** (Frontend)
-- ☁️ **AWS S3 & CloudFront** (Hosting and CDN)
-- 🖌️ **Tailwind CSS** (Styling)
-- 🛡️ **DatoCMS** (Content Management)
-- 🧩 **Other Cool Tools**: GitHub Actions
+- ⚛️ **React 18** (Frontend Framework)
+- 📱 **TypeScript** (Type Safety)
+- 🎨 **CSS3** (Custom Styling & Animations)
+- 🎵 **React Icons** (Icon Library)
+- 🎬 **React Router v6** (Navigation)
+- 📊 **React Vertical Timeline** (Professional Timeline)
+- 🖼️ **SVG Animations** (Custom Text Rendering)
+- 🎯 **Static Data** (No External Dependencies)
 
 ---
 
-## ⭐ Show Your Support
+## 🚀 Live Projects Featured
 
-If you find this project helpful or inspiring, give it a ⭐ on GitHub—it means the world to me! 🌟
+### 1. **Image Classification on CIFAR-10**
+- **Live Demo**: [https://ecencifar10project.netlify.app](https://ecencifar10project.netlify.app)
+- **Achievement**: 95% accuracy with ResNet-34
+- **Tech**: Python, PyTorch, ResNet, SVM
 
-Happy coding! 💻✨
+### 2. **TalentSync - AI Resume Matching**
+- **Features**: Semantic search, RAG explanations, career prediction
+- **Performance**: 85% retrieval relevance, 80% prediction accuracy
+- **Tech**: Python, Streamlit, FAISS, SentenceTransformers
+
+### 3. **YOLOv8 Traffic Monitoring**
+- **Results**: Detected 761 vehicles + 326 pedestrians
+- **Tech**: Python, YOLOv8, OpenCV, Pandas
+
+### 4. **Interactive Fitness Dashboard**
+- **Enhancement**: 20% improved data reliability with ML imputation
+- **Tech**: JavaScript, Vega-Lite, HTML/CSS, MongoDB
 
 ---
 
 ## 📚 Getting Started
 
-Want to set this up locally? Follow these steps:
+Want to explore this portfolio locally? Follow these steps:
 
-1. **Clone the Repository**: Copy the repository to your local system.
-2. **Install Dependencies**: Use a package manager to install the required dependencies.
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn package manager
 
+### Installation
+
+1. **Clone the Repository**
 ```bash
-nvm install 18
-nvm use 18
+git clone https://github.com/yourusername/netflix-portfolio.git
+cd netflix-portfolio
 ```
 
-After upgrading Node.js, clear your node_modules and reinstall:
-
+2. **Install Dependencies**
 ```bash
-rm -rf node_modules
-npm cache clean --force
 npm install
+# or
+yarn install
 ```
 
-3. **Configure Environment Variables**: Create a `.env` file and set up the necessary API keys and configurations.
-4. **Run the Project**: Start the development server.
-
+3. **Start Development Server**
 ```bash
 npm start
+# or
+yarn start
 ```
 
-5. **Visit the Local Server**: Open your browser and navigate to the local server URL.
-   ![alt text](image.png)
+4. **Open in Browser**
+Navigate to `http://localhost:3000` to see the portfolio in action!
+
+---
+
+## 🎯 Portfolio Sections
+
+### **Profile Selection**
+- **Recruiter**: Focus on professional experience, certifications, and contact
+- **Developer**: Emphasis on technical skills, projects, and code
+- **Stalker**: Comprehensive view of all available information
+
+### **Main Sections**
+- **Skills**: Programming, Data Engineering, ML/AI, Tools & Platforms
+- **Experience**: Detailed work history with clickable timeline
+- **Projects**: Interactive project showcase with live demos
+- **Certifications**: 5G, SQL, Advanced C Programming certificates
+- **Anime**: Personal favorites collection
+- **Resume**: Complete professional resume in-browser
+- **Contact**: Professional contact information with profile picture
+
+---
+
+## 🎨 Customization
+
+This portfolio is designed to be easily customizable:
+
+### **Personal Information**
+- Update `src/queries/` files to modify content
+- Replace images in `src/images/` and `public/` folders
+- Modify profile configurations in `src/profilePage/`
+
+### **Styling**
+- Customize colors in CSS files
+- Modify animations in `src/NetflixTitle.css`
+- Update fonts and typography
+
+### **Content Management**
+- All content is stored in static files for easy editing
+- No external CMS dependencies
+- Simple data structure for quick updates
+
+---
+
+## 🌟 Key Features Implemented
+
+### **Recent Updates**
+- ✅ Removed DatoCMS dependencies for faster loading
+- ✅ Added automatic animation start (no click required)
+- ✅ Implemented clickable timeline with detailed experience pages
+- ✅ Created interactive project cards with external links
+- ✅ Added certificate detail pages with actual certificate images
+- ✅ Integrated personal anime collection with hover effects
+- ✅ Built comprehensive resume page with detailed content
+- ✅ Removed unnecessary sections (Music, Work Permit, etc.)
+- ✅ Updated all content to reflect personal information
+- ✅ Implemented Netflix Sans font for authentic branding
+
+---
+
+## 📧 Contact Information
+
+- 💼 **Portfolio Website**: [Your Live Portfolio URL]
+- 📧 **Email**: pra24@tamu.edu
+- 🔗 **LinkedIn**: [www.linkedin.com/in/prachi-dudhe](https://www.linkedin.com/in/prachi-dudhe)
+- 📍 **Location**: Texas, USA
+- 🎓 **Education**: M.S. Data Science (ECE Track) - Texas A&M University
 
 ---
 
 ## 🤝 Contribution Guidelines
 
-Contributions are welcome and appreciated! 🥳 To contribute:
+Contributions are welcome! To contribute:
 
-1. Fork the repository.
-2. Create a new branch for your feature or fix.
-3. Commit your changes with a descriptive message.
-4. Push your changes to your branch.
-5. Open a Pull Request. 🎉
-
----
-
-## 🐛 Issues and Feature Requests
-
-Found a bug? Have a feature in mind? 🤔 Feel free to raise an issue or suggest a feature!
-
-1. Go to the **Issues** tab in the repository.
-2. Click **New Issue**.
-3. Provide a clear description of the bug or feature request.
-4. If applicable, include screenshots or steps to reproduce the issue.
-
-Your feedback is valuable and helps make this project better for everyone. Thank you for contributing!
-
----
-
-## 🌟 Acknowledgments
-
-- Thanks to [DatoCMS](https://www.datocms.com) for powering the dynamic content.
-- Inspired by countless developers in the open-source community. 💻
-- Special shoutout to all contributors—you rock! 🤘
-
----
-
-## 📧 Contact Me
-
-- 💼 [Portfolio Website](https://sumanthsamala.com)
-- 📧 Email: [chintusamala96@gmail.com](mailto:chintusamala96@gmail.com)
-- 🔗 [LinkedIn](https://uk.linkedin.com/in/sumanth-samala-82431161)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ---
 
 ## 📜 License
 
-This project is licensed under the MIT License. Feel free to use it, modify it, and share it! 🌈
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
+
+## 🙏 Acknowledgments
+
+- Inspired by Netflix's user interface design
+- Built with React and modern web technologies
+- Special thanks to the open-source community
+- Font: Netflix Sans (Google Fonts)
+
+---
+
+**Happy coding! 💻✨**
+
+*This portfolio represents my journey in data science and software development, showcasing both technical skills and creative problem-solving abilities.*

@@ -1,21 +1,34 @@
 // queries/getProjects.ts
-import datoCMSClient from './datoCMSClient';
 import { Project } from '../types';
 
-const GET_PROJECTS = `
-  query {
-    allProjects(orderBy: title_ASC) {
-      title
-      description
-      techUsed
-      image {
-        url
-      }
-    }
+const STATIC_PROJECTS: Project[] = [
+  {
+    title: 'Image Classification on CIFAR-10',
+    description: 'Compared CNN (75%), ResNet-18+SVM (86%), and ResNet-34 (95%) with tuning and interpretability.',
+    techUsed: 'Python, PyTorch, ResNet, SVM',
+    image: { url: '/cifar10-dataset.jpg' },
+    link: 'https://ecencifar10project.netlify.app'
+  },
+  {
+    title: 'Traffic Monitoring with YOLOv8',
+    description: 'Detected 761 vehicles and 326 pedestrians across 180+ frames and built activity trends.',
+    techUsed: 'Python, YOLOv8, OpenCV, Pandas',
+    image: { url: '/traffic-monitoring.jpg' }
+  },
+  {
+    title: 'Interactive Fitness Dashboard',
+    description: 'Responsive Vega-Lite dashboards for Fitbit metrics with ML-based imputation (+20% reliability).',
+    techUsed: 'JavaScript, Vega-Lite, HTML/CSS, MongoDB',
+    image: { url: '/fitness-dashboard.jpg' }
+  },
+  {
+    title: 'TalentSync — AI Resume Matching & Career Path Prediction',
+    description: 'Embeddings + FAISS semantic search with RAG explanations; ~85% retrieval relevance, ~80% accuracy.',
+    techUsed: 'Python, Streamlit, FAISS, SentenceTransformers, scikit-learn, XGBoost',
+    image: { url: '/resume-matching.jpg' }
   }
-`;
+];
 
 export async function getProjects(): Promise<Project[]> {
-  const data = await datoCMSClient.request<{ allProjects: Project[] }>(GET_PROJECTS);
-  return data.allProjects;
+  return STATIC_PROJECTS;
 }

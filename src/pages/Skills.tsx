@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Skills.css';
 import { getSkills } from '../queries/getSkills';
 
-import { FaReact, FaNodeJs, FaAws, FaDocker, FaGitAlt, FaJava } from 'react-icons/fa';
-import { SiRubyonrails, SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiSpringboot, SiPhp, SiNetlify, SiHeroku, SiHtml5, SiCss3, SiRabbitmq, SiImessage } from 'react-icons/si';
+import { FaNodeJs, FaAws, FaDocker, FaJava, FaCode } from 'react-icons/fa';
+import { SiRubyonrails, SiTypescript, SiPostgresql, SiMysql, SiKubernetes, SiGooglecloud, SiSpringboot, SiPhp, SiNetlify, SiHeroku, SiRabbitmq, SiImessage } from 'react-icons/si';
 import { Skill } from '../types';
 
 const iconMap: { [key: string]: JSX.Element } = {
@@ -12,7 +12,6 @@ const iconMap: { [key: string]: JSX.Element } = {
   SiSpringboot: <SiSpringboot />,
   FaJava: <FaJava />,
   SiPhp: <SiPhp />,
-  FaReact: <FaReact />,
   SiTypescript: <SiTypescript />,
   FaAws: <FaAws />,
   FaDocker: <FaDocker />,
@@ -57,7 +56,7 @@ const Skills: React.FC = () => {
           <div className="skills-grid">
             {skillsByCategory[category].map((skill: any, idx: number) => (
               <div key={idx} className="skill-card">
-                <div className="icon">{iconMap[skill.icon] || <FaReact />}</div>
+                <div className="icon">{iconMap[skill.icon] || <FaCode />}</div>
                 <h3 className="skill-name">
                   {skill.name.split('').map((letter: any, i: number) => (
                     <span key={i} className="letter" style={{ animationDelay: `${i * 0.05}s` }}>
