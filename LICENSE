@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2024 Prachi Dudhe
+Copyright (c) 2024 Sumanth Samala (Original Author)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +20,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+This project is a fork of the original Netflix-inspired portfolio by Sumanth Samala.
+Original repository: https://github.com/SamalaSumanth0262/netflix_portfolio
+
+Significant modifications made by Prachi Dudhe:
+- Personalized content and branding
+- Removed DatoCMS dependencies
+- Added new features (certificate details, project links, anime section)
+- Updated UI/UX with custom animations and styling
+- Added comprehensive resume and experience detail pages

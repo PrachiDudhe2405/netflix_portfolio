@@ -193,10 +193,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- Inspired by Netflix's user interface design
-- Built with React and modern web technologies
-- Special thanks to the open-source community
-- Font: Netflix Sans (Google Fonts)
+- **Original Project**: Forked from [Sumanth Samala's Netflix Portfolio](https://github.com/SamalaSumanth0262/netflix_portfolio)
+- **Inspiration**: Netflix's user interface design
+- **Built with**: React and modern web technologies
+- **Special thanks**: To the open-source community
+- **Font**: Netflix Sans (Google Fonts)
+
+## 📝 Attribution
+
+This project is a personalized fork of the original Netflix-inspired portfolio template. While the core structure and design concepts remain from the original work, significant modifications have been made including:
+
+- Complete content personalization for Prachi Dudhe
+- Removal of DatoCMS dependencies
+- Addition of new interactive features
+- Custom animations and styling
+- Enhanced user experience elements
 
 ---
 
