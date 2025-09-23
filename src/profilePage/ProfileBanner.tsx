@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProfileBanner.css';
 import PlayButton from '../components/PlayButton';
 import MoreInfoButton from '../components/MoreInfoButton';
@@ -9,6 +10,7 @@ const ProfileBanner: React.FC = () => {
 
 
   const [bannerData, setBannerData] = useState<ProfileBannerType | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -21,7 +23,8 @@ const ProfileBanner: React.FC = () => {
   if (!bannerData) return <div>Loading...</div>;
 
   const handlePlayClick = () => {
-    window.location.href = '/resume';
+    // Use client-side navigation so we don't reload and hit the splash
+    navigate('/resume');
   };
 
   const handleLinkedinClick = () => { 

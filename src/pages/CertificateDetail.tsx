@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './CertificateDetail.css';
+import fiveGImage from '../images/5g.png';
+import uttaraImage from '../images/uttara.png';
 
 interface CertificateDetailData {
   id: string;
@@ -18,7 +20,7 @@ const certificateData: { [key: string]: CertificateDetailData } = {
     issuer: 'Qualcomm Wireless Academy',
     issuedDate: '2025',
     description: 'Comprehensive certification covering the fundamentals of 5G wireless technology, including network architecture, key technologies, and applications.',
-    imageUrl: '/5g-certificate.png'
+    imageUrl: fiveGImage
   },
   'advanced-c-unix': {
     id: 'advanced-c-unix',
@@ -26,7 +28,7 @@ const certificateData: { [key: string]: CertificateDetailData } = {
     issuer: 'Uttara Computers',
     issuedDate: '2022',
     description: 'Advanced certification in C programming and Unix system internals, covering low-level programming, system calls, and kernel programming concepts.',
-    imageUrl: '/uttara-certificate.png'
+    imageUrl: uttaraImage
   }
 };
 

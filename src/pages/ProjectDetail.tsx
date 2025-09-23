@@ -31,13 +31,13 @@ const projectData: { [key: string]: ProjectDetailData } = {
   'yolov8-traffic': {
     id: 'yolov8-traffic',
     title: 'YOLOv8 Traffic & Pedestrian Monitoring',
-    problem: 'Manual video review for traffic and pedestrian flow is time-consuming and impractical for large cities. I wanted to automate detection and convert it into actionable analytics for urban planning.',
-    approach: 'I used YOLOv8x to detect vehicles and pedestrians frame-by-frame, then aggregated the detections into time-series trends.',
-    data: 'Traffic surveillance videos sampled at 1 frame per second (~180 frames total).',
-    tools: 'YOLOv8x: cutting-edge object detection, pretrained on COCO.\nOpenCV: for frame extraction and preprocessing.\nPandas/Matplotlib: to aggregate and visualize detection results.',
-    steps: 'Extracted video frames with OpenCV.\nRan YOLOv8x detections per frame for vehicles and pedestrians.\nStored structured results in Pandas DataFrames.\nVisualized activity trends across frames and time.',
-    eda: 'Plotted vehicle vs pedestrian counts over time to identify traffic spikes. Analyzed object distribution across vehicle categories.',
-    results: 'Detected 761 vehicles and 326 pedestrians across ~180 frames.\nHighlighted clear peaks in congestion and pedestrian activity.\nDemonstrated how CV + analytics can aid city planning.',
+    problem: 'Urban planners and traffic engineers need reliable data on congestion and pedestrian flow, but manual video review is tedious and inefficient. Existing traffic sensors are often expensive, fixed in place, and limited in what they measure. I wanted to explore how computer vision could automatically extract vehicle and pedestrian counts from video streams and convert them into analytics for decision-making.',
+    approach: 'I applied YOLOv8x, a state-of-the-art object detection model, to identify vehicles and pedestrians in surveillance video frames. After detection, I aggregated the results into structured time-series data to study trends in congestion and pedestrian activity.',
+    data: 'Traffic surveillance videos sampled at 1 frame per second, giving ~180 analyzed frames per video segment.\nClasses of interest: cars, buses, trucks, motorcycles, bicycles, and pedestrians.',
+    tools: 'YOLOv8x (Ultralytics): chosen for high accuracy and pretrained COCO weights that include vehicle and pedestrian classes.\nOpenCV: to extract frames, preprocess images, and feed them to YOLOv8.\nPandas: to store detection outputs in tabular format for aggregation.\nMatplotlib: for visualizing time-series traffic and pedestrian patterns.',
+    steps: 'Frame extraction: Used OpenCV to sample each video at 1 fps to balance accuracy with runtime efficiency.\nDetection: Passed each frame through YOLOv8x, outputting bounding boxes, class labels, and confidence scores.\nData structuring: Collected detection counts in Pandas DataFrames, indexed by frame and timestamp.\nAggregation: Summed counts across frames to track total vehicles/pedestrians and calculated per-minute averages.\nVisualization: Generated line charts and stacked bar plots to highlight changes in traffic density and pedestrian flow over time.',
+    eda: 'Compared frequency distributions of different vehicle types (cars vs buses vs trucks).\nCorrelated pedestrian counts with peak vehicle counts to spot potential conflict periods.\nChecked YOLOv8 confidence thresholds (e.g., 0.5 vs 0.7) to balance precision and recall.\nInspected bounding box overlaps to ensure accurate pedestrian detection in crowded scenes.',
+    results: 'Detected 761 vehicles and 326 pedestrians across ~180 frames, with clear peaks during high-traffic intervals.\nIdentified temporal patterns such as evening vehicle surges and steady midday pedestrian flow.\nDemonstrated how object detection + analytics can replace manual counting and supplement fixed sensors.\nHighlighted potential applications in urban planning, smart city monitoring, and pedestrian safety analysis.',
     techStack: 'Python, YOLOv8x, OpenCV, Pandas, Matplotlib'
   },
   'cifar10-classification': {
@@ -54,14 +54,14 @@ const projectData: { [key: string]: ProjectDetailData } = {
   },
   'fitbit-dashboard': {
     id: 'fitbit-dashboard',
-    title: 'Fitbit Unified Health Dashboard',
-    problem: 'Fitbit generates valuable data, but raw JSON exports are messy and not user-friendly. I wanted to design a dashboard that made health trends both reliable and engaging.',
-    approach: 'I built an interactive dashboard combining data visualization with ML-based imputation to handle missing values.',
-    data: 'Fitbit JSON exports stored in MongoDB, covering activity, calories, heart rate, and sleep metrics.',
-    tools: 'JavaScript + Vega-Lite: for interactive visual storytelling.\nMongoDB: to manage semi-structured JSON data.\nML regression: for imputing missing values and improving reliability.',
-    steps: 'Imported JSON data into MongoDB and standardized time-series formats.\nApplied regression-based imputation, boosting reliability by ~20%.\nBuilt dashboards with radial plots, bar charts, and heatmaps.\nDesigned daily, weekly, and monthly views for flexible analysis.',
-    eda: 'Explored correlations between steps, calories, and sleep. Analyzed missing data patterns to refine imputation models.',
-    results: 'Improved reliability of health insights by 20% with imputation.\nCreated engaging visualizations that made health data more accessible.\nTurned raw logs into an interactive dashboard for personal wellness.',
+    title: 'Interactive Fitness Dashboard',
+    problem: 'Fitbit devices generate rich health and activity data, but raw JSON exports are messy, hard to interpret, and not engaging for everyday users. Most people want quick, visual insights — not rows of data. My goal was to build an interactive dashboard that could unify data streams, handle missing values intelligently, and present health insights in a fun, intuitive way.',
+    approach: 'I created a dashboard that combined data visualization with machine learning-based imputation for missing values. The idea was to provide clean, reliable health trends while keeping the experience interactive and visually appealing.',
+    data: 'Fitbit JSON exports (steps, calories, heart rate, sleep patterns).\nStored and managed using MongoDB for efficient querying of semi-structured data.',
+    tools: 'JavaScript + Vega-Lite: chosen for interactive, declarative charting that makes complex trends easy to explore.\nMongoDB: ideal for handling semi-structured JSON from Fitbit exports.\nML regression models: to impute missing values and ensure trend accuracy.',
+    steps: 'Data ingestion: Loaded Fitbit JSON into MongoDB collections for structured access.\nCleaning & standardization: Normalized timestamps, units, and categories across data streams.\nImputation: Trained regression models to predict missing values (e.g., steps on incomplete days), improving reliability by ~20%.\nVisualization design: Built interactive charts including:\nRadial plots for daily activity.\nStacked bar charts for calorie breakdowns.\nHeatmaps for sleep cycles.\nLine charts for heart rate and step trends.\nUser experience: Designed multiple views — daily, weekly, and monthly — so users could zoom in or out of their activity trends.',
+    eda: 'Explored correlations between step count, calories burned, and sleep duration.\nIdentified systematic missing data (e.g., incomplete logging during device downtime).\nValidated imputed values against real subsets (~97% accuracy).',
+    results: 'Boosted data reliability by 20% through intelligent imputation.\nEnabled users to explore health trends interactively rather than passively viewing static reports.\nTransformed raw, messy Fitbit logs into an engaging health dashboard, making wellness tracking more actionable and motivating.\nProvided a reusable framework that could be extended to other wearable datasets.',
     techStack: 'JavaScript, Vega-Lite, MongoDB, ML Regression'
   }
 };

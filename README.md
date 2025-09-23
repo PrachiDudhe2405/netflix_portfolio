@@ -1,3 +1,19 @@
+## Deploy to GitHub Pages (quick steps)
+
+This project is configured for GitHub Pages using HashRouter.
+
+1. Install once:
+```
+npm i -D gh-pages
+```
+
+2. Deploy:
+```
+npm run deploy
+```
+
+The site will be published to the `homepage` in package.json.
+
 # 🌟 Prachi Dudhe's Netflix-Inspired Portfolio 🌟
 
 Welcome to my personal portfolio project! 🚀 This is a Netflix-inspired portfolio website that showcases my work, skills, and experiences in data science and software development. It features an immersive Netflix-like interface with personalized content and interactive elements.

@@ -24,6 +24,13 @@
   align-items: center;
 }
 
+.navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 32px; /* add space between brand and first menu item */
+}
+
 .navbar-logo img {
   height: 30px;
   margin-right: 30px;
@@ -83,7 +90,7 @@
 @media (max-width: 768px) {
   .navbar-logo img {
     height: 20px;
-    margin-right: auto;
+    margin-right: 16px;
   }
   .profile-icon {
     width: 24px;

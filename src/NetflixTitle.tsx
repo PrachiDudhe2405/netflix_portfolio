@@ -1,26 +1,40 @@
 import React, { useEffect, useState } from 'react';
-import './NetflixTitle.css';
-import netflixSound from './netflix-sound.mp3';
 import { useNavigate } from 'react-router-dom';
-// Rendering name as text instead of static image so it can be personalized
+import netflixSound from './netflix-sound.mp3';
 
 const NetflixTitle = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Start animation automatically after component mounts
+    console.log('NetflixTitle component mounted');
+    
+    // Start animation after a short delay
     const startTimer = setTimeout(() => {
+      console.log('Starting animation');
       setIsAnimating(true);
-      // Play sound
+      // Try to play the intro sound
       const audio = new Audio(netflixSound);
-      audio.play().catch(error => console.error("Audio play error:", error));
-    }, 500); // Small delay to ensure component is fully loaded
+      audio.volume = 0.7;
+      const tryPlay = () => audio.play().catch(() => {
+        // Autoplay blocked: wait for first user interaction
+        const resumeOnGesture = () => {
+          audio.play().finally(() => {
+            document.removeEventListener('pointerdown', resumeOnGesture);
+            document.removeEventListener('keydown', resumeOnGesture);
+          });
+        };
+        document.addEventListener('pointerdown', resumeOnGesture, { once: true });
+        document.addEventListener('keydown', resumeOnGesture, { once: true });
+      });
+      tryPlay();
+    }, 500);
 
-    // Navigate to browse page after animation completes
+    // Navigate to browse page after animation
     const navigateTimer = setTimeout(() => {
+      console.log('Navigating to browse page');
       navigate('/browse');
-    }, 4500); // 4.5 seconds total (0.5s delay + 4s animation)
+    }, 3500);
 
     return () => {
       clearTimeout(startTimer);
@@ -29,16 +43,31 @@ const NetflixTitle = () => {
   }, [navigate]);
 
   return (
-    <div className="netflix-container">
-      <div className={`netflix-logo ${isAnimating ? 'animate' : ''}`}>
-        <svg viewBox="0 0 800 300" className="netflix-svg" aria-label="Prachi Dudhe">
-          <defs>
-            <path id="arcPath" d="M50,200 Q400,40 750,200" />
-          </defs>
-          <text className="netflix-text">
-            <textPath href="#arcPath" startOffset="50%" textAnchor="middle">PRACHI DUDHE</textPath>
-          </text>
-        </svg>
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      width: '100vw',
+      backgroundColor: '#141414',
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      zIndex: 9999
+    }}>
+      <div style={{
+        textAlign: 'center',
+        color: '#e50914',
+        fontFamily: 'Netflix Sans, Arial, sans-serif',
+        fontWeight: '800',
+        fontSize: isAnimating ? '72px' : '48px',
+        transform: isAnimating ? 'scale(1.2)' : 'scale(1)',
+        opacity: isAnimating ? 0.8 : 1,
+        transition: 'all 2s ease-in-out',
+        textTransform: 'uppercase',
+        letterSpacing: '2px'
+      }}>
+        PRACHI DUDHE
       </div>
     </div>
   );
