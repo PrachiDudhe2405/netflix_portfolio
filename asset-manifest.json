@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/netflix_portfolio/static/css/main.cdc99f48.css",
+    "main.js": "/netflix_portfolio/static/js/main.569f4731.js",
+    "static/js/453.b0cd7502.chunk.js": "/netflix_portfolio/static/js/453.b0cd7502.chunk.js",
+    "static/media/prachi-photo.jpg": "/netflix_portfolio/static/media/prachi-photo.9c06514a9b8d0d6201fd.jpg",
+    "static/media/DV.png": "/netflix_portfolio/static/media/DV.be686da734da11cb1792.png",
+    "static/media/Py.png": "/netflix_portfolio/static/media/Py.3f4d6245e8d62c7884ce.png",
+    "static/media/SQL-2.png": "/netflix_portfolio/static/media/SQL-2.1ec78ce13ede0c3de542.png",
+    "static/media/Data.png": "/netflix_portfolio/static/media/Data.9714b81dcf192b20211f.png",
+    "static/media/SQL.png": "/netflix_portfolio/static/media/SQL.061686275985eb5bba77.png",
+    "static/media/foundations-git.png": "/netflix_portfolio/static/media/foundations-git.4e55527f0fad35191726.png",
+    "static/media/5g.png": "/netflix_portfolio/static/media/5g.a18dbaccbd25a868706a.png",
+    "static/media/uttara.png": "/netflix_portfolio/static/media/uttara.237df36f885ebdc8c592.png",
+    "static/media/Hotelcalifornia.jpg": "/netflix_portfolio/static/media/Hotelcalifornia.a1b2e230d97c00441c76.jpg",
+    "static/media/grey.png": "/netflix_portfolio/static/media/grey.bbfd7fb8e095529e355c.png",
+    "static/media/blue.png": "/netflix_portfolio/static/media/blue.9b293a4a6ef065903a8f.png",
+    "static/media/netflix-sound.mp3": "/netflix_portfolio/static/media/netflix-sound.a13a4aedfb5da5a27f04.mp3",
+    "static/media/red.png": "/netflix_portfolio/static/media/red.6138d0c52611186c9d03.png",
+    "static/media/guns-n-roses.webp": "/netflix_portfolio/static/media/guns-n-roses.0fc43e1f941a88098915.webp",
+    "static/media/Cifar.jpeg": "/netflix_portfolio/static/media/Cifar.c91f92f78260e0167200.jpeg",
+    "static/media/Traffic.jpeg": "/netflix_portfolio/static/media/Traffic.413cf8bbe491008c6a1d.jpeg",
+    "static/media/ac-dc.jpg": "/netflix_portfolio/static/media/ac-dc.44867f491e8e97894eff.jpg",
+    "index.html": "/netflix_portfolio/index.html",
+    "main.cdc99f48.css.map": "/netflix_portfolio/static/css/main.cdc99f48.css.map",
+    "main.569f4731.js.map": "/netflix_portfolio/static/js/main.569f4731.js.map",
+    "453.b0cd7502.chunk.js.map": "/netflix_portfolio/static/js/453.b0cd7502.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cdc99f48.css",
+    "static/js/main.569f4731.js"
+  ]
+}
