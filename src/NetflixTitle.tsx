@@ -1,10 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import netflixSound from './netflix-sound.mp3';
 
 const NetflixTitle = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio(netflixSound);
+    if (audioRef.current) {
+      audioRef.current.volume = 0.7;
+    }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     console.log('NetflixTitle component mounted');
@@ -13,21 +27,13 @@ const NetflixTitle = () => {
     const startTimer = setTimeout(() => {
       console.log('Starting animation');
       setIsAnimating(true);
-      // Try to play the intro sound
-      const audio = new Audio(netflixSound);
-      audio.volume = 0.7;
-      const tryPlay = () => audio.play().catch(() => {
-        // Autoplay blocked: wait for first user interaction
-        const resumeOnGesture = () => {
-          audio.play().finally(() => {
-            document.removeEventListener('pointerdown', resumeOnGesture);
-            document.removeEventListener('keydown', resumeOnGesture);
-          });
-        };
-        document.addEventListener('pointerdown', resumeOnGesture, { once: true });
-        document.addEventListener('keydown', resumeOnGesture, { once: true });
-      });
-      tryPlay();
+      const audio = audioRef.current;
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play().catch((err) => {
+          console.warn('Unable to autoplay intro sound', err);
+        });
+      }
     }, 500);
 
     // Navigate to browse page after animation

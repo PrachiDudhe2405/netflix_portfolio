@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Certifications.css';
-import { FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
-import { SiUdemy, SiCoursera, SiIeee } from 'react-icons/si';
+import { FaExternalLinkAlt, FaUniversity, FaGitAlt, FaDatabase } from 'react-icons/fa';
+import { SiUdemy, SiCoursera, SiIeee, SiDatacamp, SiPandas, SiPython } from 'react-icons/si';
 import { Certification } from '../types';
 import { getCertifications } from '../queries/getCertifications';
 const iconData: { [key: string]: JSX.Element } = {
   'udemy': <SiUdemy />,
   'coursera': <SiCoursera />,
   'ieee': <SiIeee />,
-  'university': <FaUniversity />
+  'university': <FaUniversity />,
+  'git': <FaGitAlt />,
+  'datacamp': <SiDatacamp />,
+  'sql': <FaDatabase />,
+  'pandas': <SiPandas />,
+  'python': <SiPython />
 }
 
 const Certifications: React.FC = () => {

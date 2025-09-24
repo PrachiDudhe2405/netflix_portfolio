@@ -125,7 +125,12 @@ const Resume: React.FC = () => {
         <h2>Certifications</h2>
         <ul>
           <li>5G Introductory Certification — Qualcomm Wireless Academy</li>
-          <li>Intermediate SQL / Joining Data in SQL — DataCamp</li>
+          <li>Foundations of Git — Coursera</li>
+          <li>Introduction to Python — DataCamp</li>
+          <li>Introduction to Data Visualization with Seaborn — DataCamp</li>
+          <li>Joining Data in SQL — DataCamp</li>
+          <li>Intermediate SQL — DataCamp</li>
+          <li>Data Manipulation with pandas — DataCamp</li>
           <li>Advanced C Programming & Unix Internals — Uttara Computers</li>
         </ul>
       </section>
