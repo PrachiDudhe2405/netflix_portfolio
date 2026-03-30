@@ -1,5 +1,6 @@
 import React from 'react';
 import './Anime.css';
+import hunterXHunterImage from '../images/hunterxhunter.jpg';
 
 const Anime: React.FC = () => {
   const favorites = [
@@ -32,6 +33,11 @@ const Anime: React.FC = () => {
       title: 'Spy × Family', 
       note: 'Perfect blend of comedy, action, and heartwarming family moments.',
       image: 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx140960-Kb6R5nYQfjmP.jpg'
+    },
+    {
+      title: 'Hunter × Hunter',
+      note: 'Smart battles, unforgettable arcs, and one of the best adventure ensembles in anime.',
+      image: hunterXHunterImage
     },
   ];
 

@@ -30,7 +30,7 @@
 .pick-card:hover {
   transform: scale(1.05);
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5); /* Netflix red glow on hover */
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.5);
 }
 
 .pick-image {
@@ -73,7 +73,6 @@
  color: rgb(153, 80, 80);
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;

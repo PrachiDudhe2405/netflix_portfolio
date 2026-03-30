@@ -3,35 +3,43 @@ import { TimelineItem } from '../types';
 
 const STATIC_TIMELINE: TimelineItem[] = [
   {
-    name: 'Sulzer',
+    name: 'Texas A&M University - Corpus Christi',
+    timelineType: 'work',
+    title: 'Research Data Engineer (Capstone)',
+    techStack: 'Python, Streamlit, LlamaIndex, RAG, SQL',
+    summaryPoints: 'Built a 3-stage normalization pipeline for 29 inconsistent agricultural trial PDFs, then benchmarked SQL and semantic RAG query paths to identify the most reliable approach for each query type. Delivered the outputs in an interactive Streamlit dashboard used by cross-functional research teams for weekly decision-making.',
+    dateRange: 'Aug 2025 – Dec 2025'
+  },
+  {
+    name: 'Sulzer India',
     timelineType: 'work',
     title: 'Data Science Intern',
-    techStack: 'Python, FAISS, LLM embeddings, SAP LeanIX',
-    summaryPoints: 'During my Data Science internship at Sulzer, I designed and deployed a Retrieval-Augmented Generation (RAG) pipeline to make 24,000+ engineering and technical documents instantly searchable. Using Python, FAISS, and LLM embeddings, I improved retrieval precision by 31% and cut query response time by 47%, enabling engineers to quickly find accurate answers without manually scanning PDFs. I also partnered with IT to map 10+ internal systems in SAP LeanIX for better enterprise visibility and managed secure access for engineering teams through M-Files, ensuring compliance with internal standards. This work streamlined knowledge access, reduced delays in technical decision-making, and demonstrated how AI systems can be scaled securely in an industrial environment.',
+    techStack: 'Python, PyPDF2, FAISS, all-MiniLM-L6-v2, RAG',
+    summaryPoints: 'Built a prototype RAG pipeline for technical PDFs by chunking 500+ document segments, generating all-MiniLM-L6-v2 embeddings, and indexing them in FAISS for semantic retrieval. Benchmarked chunking and embedding configurations to find the best precision-latency trade-off, reaching 20–40 ms CPU query response.',
     dateRange: 'Jun 2025 – Jul 2025'
   },
   {
-    name: 'Tata Consultancy Services',
+    name: 'Tata Consultancy Services India',
     timelineType: 'work',
-    title: 'Software Developer',
+    title: 'Data Analyst',
     techStack: 'Python, SQL, Power BI',
-    summaryPoints: 'At Tata Consultancy Services, I worked as a Software Developer where I focused on building and optimizing ETL pipelines in Python and SQL to ensure enterprise data quality. I automated Power BI dashboards that cut manual reporting by half and enabled faster decision-making across teams. I also improved workflow efficiency by reducing preprocessing time by 40% through testing and root-cause analysis, while contributing to Agile sprints that improved transparency and shortened decision cycles. This role gave me hands-on experience in large-scale data systems, business intelligence, and collaborative software development.',
+    summaryPoints: 'Built end-to-end ETL pipelines over enterprise ERP data, added anomaly detection to catch inconsistencies before they affected KPIs, and delivered Power BI and Tableau dashboards tracking 10+ operational metrics. Optimized SQL joins and indexing to reduce average pipeline runtime by 25% and partnered with business teams to define decision-critical metrics.',
     dateRange: 'Oct 2022 – Jul 2024'
   },
   {
     name: 'Texas A&M University',
     timelineType: 'education',
-    title: 'M.S. Data Science (ECE Track), GPA 3.33/4',
+    title: 'M.S. Data Science (ECE Track), GPA 3.5/4.0',
     techStack: 'Pattern Recognition, ML, Digital Image Processing & CV, RL',
-    summaryPoints: 'I\'m currently pursuing a Master\'s in Data Science (ECE track) at Texas A&M University, where I\'m building strong foundations in machine learning, computer vision, reinforcement learning, and pattern recognition. My coursework emphasizes both the theoretical underpinnings and hands-on applications of AI/ML, which I actively apply in projects ranging from retrieval-augmented generation systems to deep learning models for image and video analysis.',
+    summaryPoints: 'I’m currently pursuing a Master’s in Data Science at Texas A&M University, building depth in machine learning, computer vision, reinforcement learning, and evaluation-driven AI systems. My coursework and projects focus on experimentation, retrieval systems, and decision-ready analytics.',
     dateRange: 'Aug 2024 – May 2026'
   },
   {
     name: 'Pune University',
     timelineType: 'education',
-    title: 'B.E. Electronics & Telecommunication (Honors in Data Science), GPA 3.6/4',
+    title: 'B.E. Electronics & Telecommunication (Honors in Data Science), GPA 3.8/4.0',
     techStack: '',
-    summaryPoints: 'I completed my B.E. in Electronics & Telecommunication with Honors in Data Science from Pune University. My undergraduate studies gave me a strong foundation in electronics, programming, and applied data science. Alongside core engineering courses, I pursued projects that introduced me to machine learning, computer vision, and analytics, which later shaped my decision to specialize in AI/ML during my master\'s.',
+    summaryPoints: 'I completed my undergraduate degree in Electronics and Telecommunication with Honors in Data Science, building a foundation in programming, analytics, and machine learning alongside core engineering coursework. That combination shaped my move toward AI, data science, and applied experimentation.',
     dateRange: 'Aug 2018 – May 2022'
   }
 ];

@@ -38,6 +38,13 @@ const ProfileBanner: React.FC = () => {
         <p className="banner-description">
           {bannerData.profileSummary}
         </p>
+        <div className="banner-highlights">
+          {bannerData.highlights.map((highlight, index) => (
+            <div key={index} className="banner-highlight">
+              {highlight}
+            </div>
+          ))}
+        </div>
 
         <div className="banner-buttons">
           <PlayButton onClick={handlePlayClick} label="Resume" />

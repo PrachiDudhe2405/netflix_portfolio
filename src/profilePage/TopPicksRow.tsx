@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TopPicksRow.css';
-import { FaCode, FaBriefcase, FaCertificate, FaProjectDiagram, FaEnvelope, FaMusic } from 'react-icons/fa';
+import { FaCode, FaBriefcase, FaCertificate, FaProjectDiagram } from 'react-icons/fa';
 
 type ProfileType = 'recruiter' | 'developer' | 'stalker';
 
@@ -43,7 +43,7 @@ const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
             key={index} 
             className="pick-card" 
             onClick={() => navigate(pick.route)}
-            style={{ animationDelay: `${index * 0.2}s` }} // Adding delay based on index
+            style={{ animationDelay: `${index * 0.2}s` }}
           >
             <img src={pick.imgSrc} alt={pick.title} className="pick-image" />
             <div className="overlay">

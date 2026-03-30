@@ -18,6 +18,48 @@
   color: #bbb;
 }
 
+.resume-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.resume-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.resume-action:hover {
+  transform: translateY(-1px);
+}
+
+.resume-action.primary {
+  background: #e50914;
+  color: #fff;
+}
+
+.resume-action.primary:hover {
+  background: #c40812;
+}
+
+.resume-action.secondary {
+  border: 1px solid #3a3a3a;
+  background: #1b1b1b;
+  color: #f0f0f0;
+}
+
+.resume-action.secondary:hover {
+  border-color: #5a5a5a;
+  background: #232323;
+}
+
 section {
   margin-top: 28px;
 }

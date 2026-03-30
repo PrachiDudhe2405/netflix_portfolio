@@ -75,6 +75,9 @@ const Projects: React.FC = () => {
   }, [])
 
   const getProjectId = (title: string): string => {
+    if (title.includes('Acing Blackjack')) return 'blackjack-drl';
+    if (title.includes('Road Lane Overlay')) return 'road-lane-overlay';
+    if (title.includes('AgriChat')) return 'agrichat';
     if (title.includes('TalentSync')) return 'talentsync';
     if (title.includes('YOLOv8')) return 'yolov8-traffic';
     if (title.includes('Fitness Dashboard')) return 'fitbit-dashboard';
@@ -111,6 +114,22 @@ const Projects: React.FC = () => {
             <div className="project-details">
               <h3>{project.title}</h3>
               <p>{project.description}</p>
+              {project.proofLinks && project.proofLinks.length > 0 && (
+                <div className="project-proof-links">
+                  {project.proofLinks.map((proof, i) => (
+                    <a
+                      key={i}
+                      href={proof.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-proof-link"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      {proof.label}
+                    </a>
+                  ))}
+                </div>
+              )}
               <div className="tech-used">
                 {project.techUsed.split(', ').map((tech, i) => (
                   <span key={i} className="tech-badge">

@@ -16,63 +16,88 @@ interface ExperienceDetailData {
 }
 
 const experienceData: { [key: string]: ExperienceDetailData } = {
+  'tamucc-capstone': {
+    id: 'tamucc-capstone',
+    title: 'Research Data Engineer (Capstone)',
+    company: 'Texas A&M University - Corpus Christi',
+    dateRange: 'Aug 2025 – Dec 2025',
+    techStack: 'Python, Streamlit, LlamaIndex, RAG, SQL, Agricultural Analytics',
+    summary: 'This capstone focused on turning agricultural trial reports that were trapped in inconsistent PDFs into a system researchers could actually use for decisions. I built a 3-stage normalization pipeline for the underlying data, then evaluated hybrid query strategies to determine when deterministic SQL and when semantic RAG produced the most reliable answers. The final output was an interactive dashboard that helped research teams compare varieties across counties and years without manually parsing reports.',
+    keyAchievements: [
+      'Built a 3-stage agricultural data normalization pipeline that reduced malformed records by 30% across 29 PDF reports',
+      'Designed a controlled evaluation framework comparing SQL and semantic RAG retrieval paths across different query types',
+      'Delivered a Streamlit dashboard with 3 query modes so research teams could use the system for weekly operational decisions'
+    ],
+    challenges: [
+      'Normalizing inconsistent agricultural PDFs with irregular schemas, mixed table formats, and missing metadata',
+      'Choosing the right retrieval path for each query type without sacrificing reliability or interpretability',
+      'Presenting system outputs in a way non-technical stakeholders could trust and act on'
+    ],
+    impact: [
+      'Made cross-county and cross-year variety comparisons feasible without manual report review',
+      'Improved data quality before downstream analytics by reducing malformed records and schema inconsistencies',
+      'Helped cross-functional research teams use AI outputs as a decision tool rather than a black-box demo'
+    ],
+    learnings: [
+      'How to evaluate structured and semantic retrieval systems using task-specific reliability criteria',
+      'How important schema quality and provenance are in domain-specific RAG systems',
+      'How to communicate uncertainty, trade-offs, and evidence grounding to applied research stakeholders'
+    ]
+  },
   'sulzer-intern': {
     id: 'sulzer-intern',
     title: 'Data Science Intern',
-    company: 'Sulzer',
+    company: 'Sulzer India',
     dateRange: 'Jun 2025 – Jul 2025',
-    techStack: 'Python, FAISS, LLM embeddings, SAP LeanIX, M-Files',
-    summary: 'During my Data Science internship at Sulzer, I took on the challenge of helping engineers who often had to dig through thousands of technical PDFs just to find a single answer. My goal was to make that knowledge accessible in seconds instead of hours. I led the development of a Retrieval-Augmented Generation (RAG) pipeline that transformed 24,000+ documents into an instantly searchable knowledge base. Along the way, I also worked with IT to map internal systems in SAP LeanIX and set up secure access in M-Files, making sure information was not only easy to find but also safely managed.',
+    techStack: 'Python, PyPDF2, FAISS, all-MiniLM-L6-v2, RAG',
+    summary: 'At Sulzer India, I worked on a prototype RAG system for technical PDF search. The core problem was practical: employees were spending too much time manually searching documents for routine operational answers. I built a retrieval pipeline that chunked document text, generated dense embeddings, and indexed them for semantic search, then benchmarked different configurations to find the best balance between retrieval quality and query speed.',
     keyAchievements: [
-      'Designed and deployed a RAG pipeline using Python, FAISS, and LLM embeddings, boosting retrieval precision by 31% and reducing query response time by 47%',
-      'Partnered with IT to map 10+ internal systems in SAP LeanIX, improving enterprise-wide visibility',
-      'Managed secure access for engineering teams through M-Files, ensuring compliance with internal standards'
+      'Built a prototype RAG pipeline that chunked 500+ document segments and indexed them in FAISS for semantic retrieval',
+      'Benchmarked embedding configurations and chunk sizes to identify the best precision-latency trade-off',
+      'Achieved 20–40 ms CPU query response and documented assumptions plus a scalability roadmap for enterprise deployment'
     ],
     challenges: [
-      'Ensured the RAG pipeline could handle large-scale document processing without latency issues',
-      'Balanced semantic search accuracy with query efficiency to meet real-world usage needs',
-      'Integrated AI solutions securely within an enterprise environment with strict compliance requirements'
+      'Choosing chunking and embedding settings that improved relevance without increasing latency',
+      'Designing a retrieval pipeline that stayed useful on CPU-only execution',
+      'Documenting methodology clearly enough for future productionization decisions'
     ],
     impact: [
-      'Transformed 24,000+ static PDFs into a searchable knowledge base, cutting manual search times from hours to seconds',
-      'Streamlined technical decision-making by providing engineers with accurate, instant answers',
-      'Demonstrated how advanced AI can be scaled securely in industrial settings, paving the way for future adoption'
+      'Reduced the effort needed to search technical PDFs for routine operational questions',
+      'Established a benchmarked foundation for future enterprise-scale document retrieval',
+      'Provided a methodical evaluation of precision versus latency trade-offs rather than a one-off prototype'
     ],
     learnings: [
-      'Gained hands-on experience in deploying RAG pipelines and working with semantic embeddings for real-world enterprise applications',
-      'Learned the importance of aligning AI performance with both technical and business requirements',
-      'Understood how compliance and security must be integrated into AI workflows for successful adoption in industrial environments'
+      'How to benchmark retrieval systems against real operational constraints',
+      'How chunking and embedding choices materially affect both response quality and speed',
+      'How to communicate methodology, assumptions, and scale risks for AI systems in enterprise settings'
     ]
   },
   'tcs-developer': {
     id: 'tcs-developer',
-    title: 'Software Developer',
-    company: 'Tata Consultancy Services',
+    title: 'Data Analyst',
+    company: 'Tata Consultancy Services India',
     dateRange: 'Oct 2022 – Jul 2024',
-    techStack: 'Python, SQL, Power BI, ETL Pipelines, Agile/Scrum',
-    summary: 'At Tata Consultancy Services, I learned firsthand how even small inefficiencies in data workflows can ripple into big business delays. My role was to make data cleaner, faster, and easier to use. I built ETL pipelines in Python and SQL that cut down false alerts, designed dashboards in Power BI that made insights available in minutes instead of hours, and optimized workflows so teams could spend more time acting on data rather than waiting for it to process. Working in Agile sprints taught me how collaboration fuels transparency and speed, and it showed me the impact of technical solutions when they\'re closely tied to business outcomes.',
+    techStack: 'Python, SQL, Power BI, Tableau, ETL Pipelines',
+    summary: 'At Tata Consultancy Services, I focused on giving production and supply-chain teams a more reliable view of operational health. I built ETL pipelines over ERP data, added anomaly detection to catch issues before they affected KPIs, and delivered dashboards that management could actually use. The work centered on making data trustworthy, faster to process, and more actionable across teams.',
     keyAchievements: [
-      'Built ETL pipelines in Python and SQL to process and validate enterprise datasets, reducing false alerts by 30% and strengthening data accuracy',
-      'Designed automated Power BI dashboards that cut manual reporting time by 50% and delivered faster insights to stakeholders',
-      'Optimized ETL workflows through testing and root-cause analysis, reducing preprocessing time by 40%',
-      'Contributed in Agile sprints, enhancing transparency and shortening decision cycles by 25%'
+      'Built end-to-end ETL pipelines over enterprise ERP data and added anomaly detection to flag inconsistencies before they distorted KPIs',
+      'Delivered Power BI and Tableau dashboards tracking 10+ metrics adopted by management',
+      'Optimized complex SQL queries by restructuring joins and indexing, reducing average pipeline runtime by 25%'
     ],
     challenges: [
-      'Balancing data accuracy with processing efficiency while designing ETL pipelines',
-      'Ensuring dashboards met the needs of both technical and non-technical users',
-      'Identifying bottlenecks in existing workflows and implementing scalable fixes'
+      'Reconciling cross-system discrepancies across operational datasets',
+      'Balancing pipeline speed with data-quality safeguards',
+      'Defining metrics that were both technically sound and decision-relevant for business teams'
     ],
     impact: [
-      'Strengthened trust in enterprise data by improving data quality and reducing errors',
-      'Accelerated reporting and decision-making, allowing teams to act faster on insights',
-      'Streamlined workflows, cutting down redundant processes and saving operational time',
-      'Fostered stronger collaboration across teams through Agile practices'
+      'Created a more trusted reporting foundation for operations and sales teams',
+      'Reduced latency in operational reporting and improved visibility into key business metrics',
+      'Enabled faster decisions by combining cleaner data pipelines with more usable dashboards'
     ],
     learnings: [
-      'Learned how to design data pipelines that balance accuracy, scalability, and performance',
-      'Gained experience in presenting complex data through intuitive dashboards',
-      'Understood how collaborative frameworks like Agile drive both speed and transparency in large projects',
-      'Developed a deeper appreciation for the role of data reliability in business decision-making'
+      'How to build analytics systems that business teams trust enough to use regularly',
+      'How query optimization and data validation directly improve operational decision quality',
+      'How cross-functional metric definition matters as much as the pipeline implementation itself'
     ]
   },
   'tamu-ms': {
@@ -83,7 +108,7 @@ const experienceData: { [key: string]: ExperienceDetailData } = {
     techStack: 'Pattern Recognition, Deep Reinforcement Learning, Data Mining & Analysis, Mathematics for Data Science, Machine Learning, Digital Image Processing & Computer Vision, Information Storage & Retrieval',
     summary: 'When I began my Master\'s in Data Science (ECE track) at Texas A&M University, I wanted more than just theory — I wanted to push myself with rigorous coursework while applying what I learned to real AI challenges. The program has given me exactly that balance. It has been both demanding and rewarding, shaping me into someone who can connect abstract concepts to tangible solutions in AI and data science.',
     keyAchievements: [
-      'Maintained a GPA of 3.33/4 while completing advanced coursework in Pattern Recognition, Deep Reinforcement Learning, Data Mining, Mathematics for Data Science, Machine Learning, Digital Image Processing & Computer Vision, and Information Storage & Retrieval',
+      'Maintained a GPA of 3.5/4.0 while completing advanced coursework in Pattern Recognition, Deep Reinforcement Learning, Data Mining, Mathematics for Data Science, Machine Learning, Digital Image Processing & Computer Vision, and Information Storage & Retrieval',
       'Applied theoretical knowledge directly to projects, including retrieval-augmented generation pipelines and deep learning model development',
       'Built expertise across both the mathematical foundations and practical implementations of AI/ML systems'
     ],
@@ -114,7 +139,7 @@ const experienceData: { [key: string]: ExperienceDetailData } = {
     techStack: 'Electronics, Programming, Data Science, Machine Learning, Computer Vision, Analytics',
     summary: 'During my undergraduate studies at Pune University, I pursued a B.E. in Electronics & Telecommunication while also completing an Honors program in Data Science. Balancing both tracks pushed me to master traditional electronics concepts while exploring the fast-evolving world of programming, analytics, and machine learning. It was here that I realized my passion for AI/ML — I enjoyed building projects that combined hardware knowledge with data-driven insights, and this interdisciplinary experience ultimately shaped my decision to specialize further in data science.',
     keyAchievements: [
-      'Graduated with a GPA of 3.6/4 while completing coursework in both electronics and data science',
+      'Graduated with a GPA of 3.8/4.0 while completing coursework in both electronics and data science',
       'Earned Honors in Data Science alongside the core engineering curriculum',
       'Completed projects introducing me to machine learning, computer vision, and analytics',
       'Built a strong foundation across hardware systems, programming, and applied data science'

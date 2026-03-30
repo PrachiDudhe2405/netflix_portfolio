@@ -2,13 +2,36 @@
 import { Skill } from '../types';
 
 const STATIC_SKILLS: Skill[] = [
-  { name: 'Python', category: 'Programming', description: 'Pandas, NumPy, scikit-learn, TensorFlow', icon: 'python' },
-  { name: 'SQL', category: 'Programming', description: 'Queries, Joins, Optimization', icon: 'database' },
-  { name: 'JavaScript', category: 'Programming', description: 'Frontend scripting and Data Visualization', icon: 'js' },
-  { name: 'ETL & Analytics', category: 'Data Engineering & Analytics', description: 'Extract Transform Load (ETL), Exploratory Data Analysis (EDA), Cleaning, Feature Engineering, Predictive Modeling', icon: 'etl' },
-  { name: 'ML & AI', category: 'Machine Learning & AI', description: 'Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Embedding, Natural Language Processing (NLP), Convolutional Neural Network (CNNs), ResNet, YOLOv8, Support Vector Machine (SVM), Principal Component Analysis (PCA), OpenCV', icon: 'ml' },
-  { name: 'Tools', category: 'Tools & Platforms', description: 'FAISS, OpenAI/DeepSeek APIs, Snowflake, Power BI, Tableau, MongoDB, Streamlit, Git, Docker', icon: 'tools' },
-  { name: 'Workflow', category: 'Workflow & Soft Skills', description: 'Agile/Scrum, Leadership, UX design thinking, Collaboration, Communication', icon: 'workflow' }
+  {
+    name: 'Experimentation & Statistics',
+    category: 'Decision Science',
+    description: 'A/B testing, controlled experiments, hypothesis testing, effect size, variance analysis, anomaly detection, statistical EDA, metric selection, causal reasoning',
+    icon: 'FaCode'
+  },
+  {
+    name: 'ML & Decision Science',
+    category: 'Machine Learning',
+    description: 'scikit-learn, PyTorch, regression, classification, reinforcement learning, model evaluation, feature engineering',
+    icon: 'FaCode'
+  },
+  {
+    name: 'AI-Enabled Analytics',
+    category: 'AI Systems',
+    description: 'RAG pipelines, LlamaIndex, FAISS, semantic embeddings, LLM integration, retrieval quality benchmarking',
+    icon: 'SiImessage'
+  },
+  {
+    name: 'Data Engineering',
+    category: 'Engineering',
+    description: 'Python (Pandas, NumPy), SQL, ETL pipelines, schema validation, data quality monitoring, Git',
+    icon: 'FaCode'
+  },
+  {
+    name: 'Visualization & Dashboards',
+    category: 'Analytics Delivery',
+    description: 'Streamlit, Plotly, Power BI, Tableau, decision-focused dashboards, stakeholder-facing analytics',
+    icon: 'SiNetlify'
+  }
 ];
 
 export async function getSkills(): Promise<Skill[]> {

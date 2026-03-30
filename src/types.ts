@@ -3,6 +3,7 @@
 export interface ProfileBanner {
   backgroundImage: { url: string };
   headline: string;
+  highlights: string[];
   resumeLink: {
     url: string;
   };
@@ -32,6 +33,10 @@ export interface Project {
   techUsed: string;
   image: { url: string };
   link?: string;
+  proofLinks?: {
+    label: string;
+    url: string;
+  }[];
 }
 
 export interface Certification {

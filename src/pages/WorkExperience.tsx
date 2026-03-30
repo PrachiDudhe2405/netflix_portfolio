@@ -23,8 +23,9 @@ const WorkExperience: React.FC = () => {
   }, []);
 
   const getExperienceId = (item: TimelineItem): string => {
-    if (item.name === 'Sulzer') return 'sulzer-intern';
-    if (item.name === 'Tata Consultancy Services') return 'tcs-developer';
+    if (item.name === 'Texas A&M University - Corpus Christi') return 'tamucc-capstone';
+    if (item.name === 'Sulzer India') return 'sulzer-intern';
+    if (item.name === 'Tata Consultancy Services India') return 'tcs-developer';
     if (item.name === 'Texas A&M University') return 'tamu-ms';
     if (item.name === 'Pune University') return 'pune-be';
     return '';

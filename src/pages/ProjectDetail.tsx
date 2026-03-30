@@ -5,6 +5,7 @@ import './ProjectDetail.css';
 interface ProjectDetailData {
   id: string;
   title: string;
+  proofLinks?: { label: string; url: string }[];
   problem: string;
   approach: string;
   data: string;
@@ -16,6 +17,54 @@ interface ProjectDetailData {
 }
 
 const projectData: { [key: string]: ProjectDetailData } = {
+  'blackjack-drl': {
+    id: 'blackjack-drl',
+    title: 'Acing Blackjack with Deep Reinforcement Learning',
+    proofLinks: [
+      { label: 'GitHub', url: 'https://github.com/shreyamuppidi/Blackjack-DRL.git' },
+      { label: 'Demo', url: 'https://youtu.be/VRfSG4gUUeE?si=yQqjgXve_Ee8EEix' },
+      { label: 'Paper', url: `${process.env.PUBLIC_URL}/DRL_paper.pdf` }
+    ],
+    problem: 'Blackjack is a stochastic sequential-decision problem with partial observability, sparse terminal rewards, and branching consequences from actions like split and double. The project aimed to learn strong playing policies directly from experience across increasingly complex settings, rather than hard-coding basic strategy tables.',
+    approach: 'Built a custom Blackjack simulator and trained a curriculum-based Double DQN agent from simple single-player games to six-player, six-deck games. The system used experience replay, target networks, dynamic legal-action masking, transfer learning across compatible stages, and count-aware state features to study strategic learning, card counting, and multiplayer scaling.',
+    data: 'No external dataset was required. Training data was generated through self-play in a custom Blackjack environment supporting 1 to 6 players, 1 to 8 decks, automatic reshuffling, Hi-Lo running and true counts, and legal actions including hit, stand, split, and double down. The state vector scaled from 11 dimensions in single-player mode to 21 dimensions in the final six-player setup.',
+    tools: 'Custom Python Blackjack environment: modeled deck configuration, reshuffling, multi-player flow, and action validation.\nDouble DQN: reduced Q-value overestimation by separating action selection and target evaluation across online and target networks.\n3-layer MLP: used hidden layers [640, 320, 128] with ReLU and LayerNorm to approximate Q-values for hit, stand, split, and double.\nExperience replay + target network: stabilized learning under sparse rewards and stochastic transitions.\nCurriculum training: staged complexity across deck count and player count to avoid catastrophic failure when scaling directly to the hardest setting.',
+    steps: 'Implemented a custom Blackjack environment with configurable decks, Hi-Lo counting, and multi-player support.\nDesigned an 11-dimensional single-player state vector and extended it with opponent features for multi-player scenarios.\nTrained a Phase 1 single-player, single-deck agent from scratch for 150,000 episodes to learn core basic strategy.\nFine-tuned the model in Stage 2 on a six-deck shoe with counting features, then expanded to Stage 3 multi-player training with transfer learning.\nTrained the final Stage 4 six-player, six-deck model from scratch over 400,000 episodes with a larger replay buffer and learning-rate scheduling after earlier scaling failures.',
+    eda: 'Compared reward-shaping against sparse terminal rewards and found that shaped rewards led to a suboptimal 32 to 35 percent win-rate plateau by optimizing heuristics rather than long-term return. The team also analyzed stage-wise win rates, average reward, action distributions, and whether the agent learned core Blackjack principles such as standing on strong totals, doubling in advantageous spots, and using split selectively.',
+    results: 'Phase 1 reached a 43.2% win rate after 150,000 episodes, matching the target 42 to 44 percent basic-strategy range, with a final greedy evaluation reward of +0.028 per episode. In the final six-player, six-deck Stage 4 setting, the agent completed 3,015,534 training steps across 400,000 episodes and achieved a 38.0% win rate, 53.5% loss rate, 8.5% draw rate, and evaluation reward of -0.201 +/- 1.040. The model learned a conservative but competitive multiplayer policy, using stand 76.4% of the time while still applying splits (2.3%) and doubles (0.7%) in favorable situations.',
+    techStack: 'Python, Double DQN, MLP Q-Networks, Experience Replay, Target Networks, Hi-Lo Counting'
+  },
+  'road-lane-overlay': {
+    id: 'road-lane-overlay',
+    title: 'Road Lane Overlay: Generative Restoration of Lane Markings in Dashcam Footage',
+    proofLinks: [
+      { label: 'Paper', url: `${process.env.PUBLIC_URL}/GenAI_Paper.pdf` }
+    ],
+    problem: 'Lane markings are thin, high-frequency features that disappear first under motion blur, worn paint, glare, rain or fog, and night scenes. Direct lane detectors on degraded frames often produce fragmented lanes or missed markings, which destabilizes downstream planning in driver-assistance and autonomous-driving systems.',
+    approach: 'Built a lane-aware restore -> detect -> repair pipeline. First, a Dark Channel Prior visibility-boost stage optionally dehazes or derains the frame. Next, CLRerNet extracts confidence-calibrated lane polylines, which are expanded into 6-12 px lane-band masks and reduced to sparse gap masks. Instead of blind inpainting, the final system fine-tunes Qwen-Image-Edit-2509 with green CLRerNet overlays and text prompts to repaint realistic white/yellow lane markings only inside missing segments.',
+    data: 'Used the CULane dashcam dataset across nine test categories including normal, crowded, dazzle, no-line, shadow, arrow, cross, curve, and night scenes. The restoration model was fine-tuned on 900 paired images built from CLRerNet visualizations as inputs and original CULane frames as targets, with additional self-modified blurred and occluded CULane samples used to stress-test the detection stage.',
+    tools: 'Dark Channel Prior (DCP): lightweight dehazing and contrast recovery for thin lane paint under fog, rain, and low-light conditions.\nCLRerNet: confidence-calibrated lane detector used to extract lane polylines and generate localized lane-band/gap masks.\nLaMa: evaluated as an early baseline for blind inpainting, but rejected because it filled masked regions with asphalt texture instead of lane paint.\nQwen-Image-Edit-2509 + LoRA: fine-tuned generative editor conditioned on green lane overlays and text prompts for semantically correct lane reconstruction.\nAI-Toolkit / ComfyUI: used for LoRA training and controlled inference with fixed prompts, sampler settings, and reproducible seeds.',
+    steps: 'Applied optional DCP dehazing or deraining to improve visibility and generate a transmission depth hint.\nRan CLRerNet on cleaned frames using the public CULane setup to extract lane centerlines with confidence scores.\nExpanded centerlines into 6-12 px lane bands and sampled 20-50 point synthetic gaps over about 30% of each lane arc length to localize edits.\nGenerated a bright green lane overlay as the control image for the editor so geometry stayed aligned with detected lanes.\nFine-tuned Qwen-Image-Edit-2509 with LoRA for 3000 steps on 900 paired images, then compared zero-shot vs fine-tuned outputs using image-quality and lane-preservation metrics.',
+    eda: 'Measured whether edits stayed confined to narrow lane bands, tracked lane generation success across original and degraded CULane variants, and compared zero-shot versus fine-tuned generations with FID, LPIPS, SSIM, precision, recall, and F1. The analysis also surfaced a key failure mode: blind inpainting models like LaMa naturally extend surrounding asphalt texture, which makes them poorly matched to reconstructing narrow, high-contrast lane markings.',
+    results: 'On 100 evaluation images, fine-tuning improved FID from 34.54 to 30.28 (+12.3%), improved lane F1 from 0.6733 to 0.7214 (+7.1%), improved precision from 0.7355 to 0.7619 (+3.6%), and improved recall from 0.6208 to 0.6850 (+10.3%). In the detection stage, the pipeline generated lanes on 54,809 of 62,532 CULane images (87.6%), plus 88.5% of blurred and 89.8% of occluded self-modified CULane images. These results showed that prompt-guided generative restoration can recover missing lane structure without materially harming overall image fidelity.',
+    techStack: 'Python, Dark Channel Prior, CLRerNet, Qwen-Image-Edit-2509, LoRA, AI-Toolkit, ComfyUI'
+  },
+  'agrichat': {
+    id: 'agrichat',
+    title: 'AgriChat: A Hybrid Structured-Unstructured RAG System for Automated Analysis of Agricultural Variety Trial Reports',
+    proofLinks: [
+      { label: 'GitHub', url: 'https://github.com/PrachiDudhe2405/AgriChat' },
+      { label: 'Paper', url: `${process.env.PUBLIC_URL}/STAT_683_AgriChat.pdf` }
+    ],
+    problem: 'Agricultural trial reports are mostly published as heterogeneous PDFs containing mixed narrative text, irregular tables, inconsistent headers, and region-specific metadata. That makes cross-county and cross-year comparison of cotton variety performance slow, manual, and error-prone for agronomists and breeders.',
+    approach: 'Built an end-to-end hybrid RAG system that converts raw PDF trial reports into both normalized structured rows and semantically searchable text blocks. The system uses rule-based intent routing to choose between structured SQL analysis for deterministic numeric comparisons and semantic retrieval plus LLM reasoning for open-ended questions, keeping outputs grounded in source evidence.',
+    data: 'The paper evaluates AgriChat on a corpus of 29 Texas cotton variety trial reports spanning multiple counties and growing seasons. The pipeline extracts page-level text blocks, tables, provenance metadata, and reconstructed fields such as variety, county, year, yield, turnout, micronaire, length, strength, uniformity, loan value, and lint value.',
+    tools: 'PDFMiner + optional Camelot/Tabula extraction: parse page text, tables, and layout metadata from heterogeneous trial PDFs.\nNormalization pipeline: promotes headers, aligns schema, cleans entities, validates numeric fields, and reconstructs missing county or region metadata.\nBGE-small-en-v1.5 embeddings + LlamaIndex: serialize structured rows and text blocks into natural-language sentences and index them in a persistent vector store.\nSupabase PostgreSQL + SQL routing: handle explicit variety/county/year comparison queries deterministically over structured fields.\nStreamlit + Groq-accelerated Llama 3.3: provide an interactive UI, semantic RAG responses, and batch summarization with low-latency generation.',
+    steps: 'Parsed each PDF into page-level JSON containing text blocks, tables, and provenance metadata.\nFlattened extracted content into a bronze layer where each row represented one text block or one table.\nNormalized tables into a silver layer by promoting headers, detecting metric columns with regex, cleaning numeric values, and standardizing entities.\nSerialized both structured rows and narrative text into concise natural-language records, embedded them with BGE-small-en-v1.5, and stored them in a persistent LlamaIndex vector store.\nRouted user queries through structured SQL mode, batch summarization mode, or semantic RAG mode inside a Streamlit interface backed by Groq-accelerated Llama 3.3.',
+    eda: 'The evaluation focused on extraction robustness, normalization success, retrieval reliability, groundedness, and interactive latency. The paper tracks how many rows survive schema validation, whether explicit county-year-variety comparisons are resolved deterministically through SQL, whether generated responses stay grounded in retrieved evidence, and whether end-to-end performance remains interactive over the 29-document corpus.',
+    results: 'The paper reports high retrieval consistency and successful resolution of comparison queries across multiple counties and years. It concludes that combining structured normalization with unstructured RAG improves interpretability, reduces hallucination, and enables accurate cross-county and cross-year agronomic comparisons while keeping response times within interactive bounds over the full corpus.',
+    techStack: 'Python, PDFMiner, Camelot/Tabula, BGE-small-en-v1.5, LlamaIndex, Supabase PostgreSQL, Streamlit, Groq, Llama 3.3'
+  },
   'talentsync': {
     id: 'talentsync',
     title: 'TalentSync — AI Resume Matching & Career Path Prediction',
@@ -43,6 +92,9 @@ const projectData: { [key: string]: ProjectDetailData } = {
   'cifar10-classification': {
     id: 'cifar10-classification',
     title: 'CIFAR-10 Image Classification',
+    proofLinks: [
+      { label: 'Live Demo', url: 'https://ecencifar10project.netlify.app' }
+    ],
     problem: 'Baseline CNNs on CIFAR-10 often plateau around ~60% accuracy, so I set out to explore how deeper architectures and hybrid approaches could significantly improve performance while remaining interpretable.',
     approach: 'I benchmarked three progressively complex models:\n• CNN baseline for a performance reference\n• ResNet-18 with SVM classifier to test hybrid feature extraction\n• ResNet-34 end-to-end for deeper representation learning',
     data: 'Used the CIFAR-10 dataset: 60,000 32×32 color images evenly distributed across 10 classes (airplanes, cars, birds, cats, etc.).',
@@ -96,6 +148,21 @@ const ProjectDetail: React.FC = () => {
         <div className="project-meta">
           <span className="tech-stack">🔧 {project.techStack}</span>
         </div>
+        {project.proofLinks && project.proofLinks.length > 0 && (
+          <div className="project-proof-actions">
+            {project.proofLinks.map((proof, index) => (
+              <a
+                key={index}
+                href={proof.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-proof-action"
+              >
+                {proof.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="project-content">
