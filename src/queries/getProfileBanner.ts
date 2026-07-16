@@ -10,7 +10,7 @@ export async function getProfileBanner(): Promise<ProfileBanner> {
       '31% retrieval accuracy improvement and 47% latency reduction on 5,000+ technical documents at Sulzer',
       '12.3% FID improvement in lane restoration by diagnosing why the baseline model failed and switching architectures'
     ],
-    resumeLink: { url: '/resume' },
+    resumeLink: { url: `${process.env.PUBLIC_URL}/Prachi__Dudhe.pdf` },
     linkedinLink: 'https://www.linkedin.com/in/prachi-dudhe',
     profileSummary: "I'm Prachi, an MS Data Science graduate from Texas A&M. I build agentic AI systems, RAG pipelines, and ML models for real operational impact — and I'm known for diagnosing non-obvious failures and iterating quickly from real usage signals to measurable improvements. Currently looking for my first full-time Data Scientist or ML Engineer role."
   } as ProfileBanner;
