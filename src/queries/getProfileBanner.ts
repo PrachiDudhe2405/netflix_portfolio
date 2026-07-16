@@ -2,17 +2,16 @@
 import { ProfileBanner } from '../types';
 
 export async function getProfileBanner(): Promise<ProfileBanner> {
-  // Use static content instead of remote CMS
   return {
     backgroundImage: { url: '' },
-    headline: 'I build AI systems, test what works, and turn results into decisions.',
+    headline: 'I build AI systems that catch what others miss — and turn findings into decisions.',
     highlights: [
-      '29 agricultural PDFs normalized into a hybrid RAG workflow',
-      '43.2% Blackjack win rate after reward redesign and 400k+ training episodes',
-      '+7.1% lane restoration F1 with semantically guided image editing'
+      '51% incident recall on 150K telecom KPI rows after diagnosing data leakage and fixing the evaluation',
+      '31% retrieval accuracy improvement and 47% latency reduction on 5,000+ technical documents at Sulzer',
+      '12.3% FID improvement in lane restoration by diagnosing why the baseline model failed and switching architectures'
     ],
     resumeLink: { url: '/resume' },
     linkedinLink: 'https://www.linkedin.com/in/prachi-dudhe',
-    profileSummary: "I’m Prachi, an M.S. Data Science student at Texas A&M working across retrieval systems, reinforcement learning, and computer vision. I care about measurable performance, grounded outputs, and shipping analytics people can actually use."
+    profileSummary: "I'm Prachi, an MS Data Science graduate from Texas A&M. I build agentic AI systems, RAG pipelines, and ML models for real operational impact — and I'm known for diagnosing non-obvious failures and iterating quickly from real usage signals to measurable improvements. Currently looking for my first full-time Data Scientist or ML Engineer role."
   } as ProfileBanner;
 }
